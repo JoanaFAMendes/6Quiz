@@ -1,0 +1,207 @@
+#user{ 
+    width: 40px;
+    height: auto;
+}
+
+#menu{
+    position: absolute;
+    left: 95%;
+    transform: translateX(-95%);
+}
+
+#nav2{
+    height: 30%;
+    background-color:#3a64ac;
+}
+
+#logo2{
+    width:70px;
+    height: 27px;
+}
+#tipoJogo, #tema_Jogo{
+    text-align: center;
+    font-size: 50px;
+    color: #3a64ac;
+}
+#sidebar-wrapper.toggled {
+    padding-right: 250px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    right: 250px;
+    width: 0;
+    height: 100%;
+    margin-right: -250px;
+    overflow-y: auto;
+    background-color:rgba(58,100,172,0.9);
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+
+#sidebar-wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+}
+
+#menu-toggle2{
+    font-size: 20px;
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #999999;
+    background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #fff;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #999999;
+    background: none;
+}
+
+@media(min-width:768px) {
+    #sidebar-wrapper {
+        padding-right: 0;
+    }
+
+    #sidebar-wrapper.toggled {
+        padding-right: 250px;
+    }
+
+    #sidebar-wrapper {
+        width: 0;
+    }
+
+    #sidebar-wrapper.toggled #sidebar-wrapper {
+        width: 250px;
+    }
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+
+    #sidebar-wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+}
+
+#single, #multi{
+    width:250px;
+    height: 170px;
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    
+}
+#single{
+    
+   background: #3a64ac;
+}
+#multi{
+    background: rgb(33,219,255);
+}
+
+#single:hover{
+    
+     background: #2b4a80;
+      font-size: 28px;
+      border: 3px solid white
+}
+#multi:hover{
+     background: rgb(0,199,237);
+     font-size: 28px;
+      border: 3px solid white;
+     
+}
+#tema{
+    width: 200px;
+    height: 200px;
+     border: 2px solid #3a64ac;
+}
+#div_temas{
+    padding-left: 150px;
+   padding-right: 150px;
+   padding-top: 100px;
+   padding-bottom: 150px;
+}
+.div_imag_tema{
+    border: 2px solid lightgray;
+    width:200px;
+    height:204px;
+    
+}
+#temasSingle{
+     border: 1px solid white;
+       width:220px;
+    height:250px;
+    
+}
+#logoTema{
+     width:200px;
+    height:200px;
+    /*animacao quando sao apresentadas as imagens*/
+    -webkit-transition: 0.3s all ease; /* É para pega no Chrome e Safira */
+    -moz-transition: 0.3s all ease; /* Firefox */
+    -o-transition: 0.3s all ease; /* Opera */
+}
+#logoTema:hover {
+-moz-transform: scale(1.2);
+-webkit-transform: scale(1.2);
+-o-transform: scale(1.2);
+ border: 3px solid lightgray;
+}
+
+
+ body {
+    overflow-x: hidden;
+ }
