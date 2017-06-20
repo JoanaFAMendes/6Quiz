@@ -133,6 +133,7 @@ $(document).ready(function () {
                                                         $("#div_tipoJogo2").append(pergunta + "</div>");
                                                         var respostas = '<div class="row">';
                                                         var tipoPergunta = data[p].id_tipo_pergunta;
+                                                        var t=false;
                                                         //respostas
                                                         $.ajax({
                                                                 type: "GET",
@@ -148,6 +149,7 @@ $(document).ready(function () {
                                                                 });
                                                                 $("#div_tipoJogo").append(respostas + "</div>");
                                                         });
+                                                        if(t==false){break;}
                                                 }
                                                 //em vez de $(data, function (key, data) { colocar for()
                                         });
