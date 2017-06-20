@@ -114,59 +114,65 @@ $(document).ready(function () {
 
                                         //perguntas
                                         //for para dificuldade perguntas
-                                        for(var n=1; n<=6; n++){
-                                        $.ajax({
-                                                type: "GET",
-                                                url: "http://localhost:3000/perguntas?tema=" + idObj + "&nivel=" + n + "&nAleatorio=" + 6,
-                                                contentType: "application/json"
-                                        }).done(function (data) {
-                                                console.log(data[1]);
-                                                console.log("hh" + data);
-                                                //ir buscar cada pergunta ao array data
-                                                for(var p=0; p<6; p++){
-                                                        var pergunta = '<div class="row">';
-                                                        console.log("hh2");
-                                                        perguntasID = data[p].id_pergunta;
-                                                        pergunta = "<div class='col-sm-3'><center><div><p>" + data[p].pergunta + "</p></div></center></div>";
-                                                        $("#div_tipoJogo2").append(pergunta + "</div>");
-                                                        var respostas = '<div class="row">';
-                                                        var tipoPergunta = data[p].id_tipo_pergunta;
-                                                        var t=false;
-                                                        //respostas
-                                                        $.ajax({
-                                                                type: "GET",
-                                                                url: "http://localhost:3000/respostas?perguntaID=" + perguntasID ,
-                                                                contentType: "application/json"
-                                                        }).done(function (data) {
-                                                                console.log("hh" + data);
-                                                                $.each(data, function (key, data) {
-                                                                        console.log("hh2");
-                                                                        if(tipoPergunta==1){
+                                        for (var n = 1; n <= 6; n++) {
+                                                $.ajax({
+                                                        type: "GET",
+                                                        url: "http://localhost:3000/perguntas?tema=" + idObj + "&nivel=" + n + "&nAleatorio=" + 6,
+                                                        contentType: "application/json"
+                                                }).done(function (data) {
+                                                        console.log(data[1]);
+                                                        console.log("hh" + data);
+                                                        //ir buscar cada pergunta ao array data
+                                                        for (var p = 0; p < 6; p++) {
+                                                                var pergunta = '<div class="row">';
+                                                                console.log("hh2");
+                                                                perguntasID = data[p].id_pergunta;
+                                                                pergunta = "<div class='col-sm-3'><center><div><p>" + data[p].pergunta + "</p></div></center></div>";
+                                                                $("#div_tipoJogo2").append(pergunta + "</div>");
+                                                                var respostas = '<div class="row">';
+                                                                var tipoPergunta = data[p].id_tipo_pergunta;
+                                                                var t = false;
+                                                                //respostas
+                                                                $.ajax({
+                                                                        type: "GET",
+                                                                        url: "http://localhost:3000/respostas?perguntaID=" + perguntasID,
+                                                                        contentType: "application/json"
+                                                                }).done(function (data) {
+                                                                        console.log("hh" + data);
+                                                                        $.each(data, function (key, data) {
+                                                                                console.log("hh2");
+                                                                                //Escolha múltipla
+                                                                                if (tipoPergunta == 1) {
 
-                                                                        }
-                                                                        if(tipoPergunta==2){
+                                                                                }
+                                                                                //
+                                                                                if (tipoPergunta == 2) {
 
-                                                                        }
-                                                                        if(tipoPergunta==3){
-                                                                                
-                                                                        }
-                                                                        if(tipoPergunta==4){
-                                                                                
-                                                                        }
-                                                                        if(tipoPergunta==5){
-                                                                                
-                                                                        }
-                                                                        if(tipoPergunta==6){
-                                                                                
-                                                                        }
-                                                                        //perguntas[pID] = data.id_pergunta;
-                                                                        respostas += "<div class='col-sm-3'><center><div><p>" + data.resposta + "</p></div></center></div>";
+                                                                                }
+                                                                                //
+                                                                                if (tipoPergunta == 3) {
 
+                                                                                }
+                                                                                //
+                                                                                if (tipoPergunta == 4) {
+
+                                                                                }
+                                                                                //
+                                                                                if (tipoPergunta == 5) {
+
+                                                                                }
+                                                                                //
+                                                                                if (tipoPergunta == 6) {
+
+                                                                                }
+                                                                                //perguntas[pID] = data.id_pergunta;
+                                                                                respostas += "<div class='col-sm-3'><center><div><p>" + data.resposta + "</p></div></center></div>";
+
+                                                                        });
+                                                                        $("#div_tipoJogo").append(respostas + "</div>");
                                                                 });
-                                                                $("#div_tipoJogo").append(respostas + "</div>");
-                                                        });
-                                                        if(t==false){break;}
-                                                }// fim for perguntas
+                                                                //if (t == false) { break; }
+                                                        }// fim for perguntas
                                                 });
                                         }//fim for dificuldade
                                 });
@@ -174,7 +180,7 @@ $(document).ready(function () {
                         }//fim for temas
 
 
-                // $("#div_tipoJogo").load(res);
+                        // $("#div_tipoJogo").load(res);
                 });
 
         });
