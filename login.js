@@ -179,7 +179,6 @@ $(document).ready(function () {
 
                         }//fim for temas
 
-
                         // $("#div_tipoJogo").load(res);
                 });
 
