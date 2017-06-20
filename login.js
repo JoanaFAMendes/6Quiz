@@ -104,28 +104,26 @@ $(document).ready(function () {
                         $("#div_tipoJogo2").append(temas + "</div>");
 
                         //Percorre todos os temas
-                        for (var j = 0; j < i; j++) {
-                                $("#" + nomes[j]).click(function () {
+                        for (var t = 0; t < i; t++) {
+                                $("#" + nomes[t]).click(function () {
                                         $("#div_tipoJogo").empty();
                                         $("#div_tipoJogo2").empty();
                                         var perguntasID = 0;
                                         var idObj = $(this).attr('id');
                                         console.log($(this).attr('id'));
-                                        //cria o jogo do utilizador
-                                        //  $.ajax({
-                                        //         type: "GET",
-                                        //         url: "http://localhost:3000/jogo?nivel=" + +"&tema="+nomes[j],
-                                        //         contentType: "application/json"
-                                        // });
+
                                         //perguntas
+                                        //for para dificuldade perguntas
+                                        for(var n=1; n<=6; n++){
                                         $.ajax({
                                                 type: "GET",
-                                                url: "http://localhost:3000/perguntas?tema=" + idObj + "&nivel=" + 1 + "&nAleatorio=" + 6,
+                                                url: "http://localhost:3000/perguntas?tema=" + idObj + "&nivel=" + n + "&nAleatorio=" + 6,
                                                 contentType: "application/json"
                                         }).done(function (data) {
                                                 console.log(data[1]);
                                                 console.log("hh" + data);
-                                                for(var p=0; p<6; p++){//ir buscar cada pergunta ao array data
+                                                //ir buscar cada pergunta ao array data
+                                                for(var p=0; p<6; p++){
                                                         var pergunta = '<div class="row">';
                                                         console.log("hh2");
                                                         perguntasID = data[p].id_pergunta;
@@ -143,6 +141,24 @@ $(document).ready(function () {
                                                                 console.log("hh" + data);
                                                                 $.each(data, function (key, data) {
                                                                         console.log("hh2");
+                                                                        if(tipoPergunta==1){
+
+                                                                        }
+                                                                        if(tipoPergunta==2){
+
+                                                                        }
+                                                                        if(tipoPergunta==3){
+                                                                                
+                                                                        }
+                                                                        if(tipoPergunta==4){
+                                                                                
+                                                                        }
+                                                                        if(tipoPergunta==5){
+                                                                                
+                                                                        }
+                                                                        if(tipoPergunta==6){
+                                                                                
+                                                                        }
                                                                         //perguntas[pID] = data.id_pergunta;
                                                                         respostas += "<div class='col-sm-3'><center><div><p>" + data.resposta + "</p></div></center></div>";
 
@@ -150,12 +166,12 @@ $(document).ready(function () {
                                                                 $("#div_tipoJogo").append(respostas + "</div>");
                                                         });
                                                         if(t==false){break;}
-                                                }
-                                                //em vez de $(data, function (key, data) { colocar for()
-                                        });
+                                                }// fim for perguntas
+                                                });
+                                        }//fim for dificuldade
                                 });
 
-                }//fim for temas
+                        }//fim for temas
 
 
                 // $("#div_tipoJogo").load(res);
