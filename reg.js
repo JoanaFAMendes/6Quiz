@@ -12,8 +12,9 @@ app.use(cookieSession({
     keys: ["abc"]
 }));
 
-//var perguntas;
-//respostas;
+var user="";
+var jogoID="";
+var userID=0;
 
 var mysql = require('mysql');
 var connection = mysql.createConnection({
@@ -73,6 +74,7 @@ app.post('/login', function (req, res) {
             } else {
                 req.session.user1 = rows[0].email;
                 req.session.passeUser = rows[0].password;
+                userID=rows[0].id_utilizador;
                 user = rows[0].email;
                 res.status(200).send("Sucessos");
                 console.log("sucesso");
@@ -120,7 +122,7 @@ app.get('/jogo', function(req, res){
     var tema = req.param('tema');
     var d = new Date();
     var n = d.getTime();
-    jogo=tema+n;
+    jogoID=tema+n;
     var sql = 'insert into Jogo (id_jogo, nome_jogo) values('+jogo+','+tema+');';
     connection.query(sql, function(err,rows,fields){
         

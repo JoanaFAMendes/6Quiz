@@ -111,6 +111,9 @@ $(document).ready(function () {
                                         var perguntasID = 0;
                                         var idObj = $(this).attr('id');
                                         console.log($(this).attr('id'));
+                                        var validade = [][]; //validade da resposta
+                                        //buscar pontuação reposta
+                                        var pontuacao=0;//pontuação do jogador
 
                                         //perguntas
                                         //for para dificuldade perguntas
@@ -167,7 +170,7 @@ $(document).ready(function () {
                                                                                 }
                                                                                 //perguntas[pID] = data.id_pergunta;
                                                                                 respostas += "<div class='col-sm-3'><center><div><p>" + data.resposta + "</p></div></center></div>";
-
+                                                                                r++;
                                                                         });
                                                                         $("#div_tipoJogo").append(respostas + "</div>");
                                                                 });
