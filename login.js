@@ -146,7 +146,7 @@ $(document).ready(function () {
                                                                         respostas += "<div class='col-sm-3'><center><div><p>" + data.resposta + "</p></div></center></div>";
 
                                                                 });
-                                                               // $("#div_tipoJogo").append(respostas + "</div>");
+                                                                $("#div_tipoJogo").append(respostas + "</div>");
                                                         });
                                                 }
                                                 //em vez de $(data, function (key, data) { colocar for()
