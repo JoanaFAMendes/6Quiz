@@ -133,6 +133,7 @@ $(document).ready(function () {
                                                         $("#div_tipoJogo2").append(pergunta + "</div>");
                                                         var respostas = '<div class="row">';
                                                         var tipoPergunta = data[p].id_tipo_pergunta;
+                                                        //respostas
                                                         $.ajax({
                                                                 type: "GET",
                                                                 url: "http://localhost:3000/respostas?perguntaID=" + perguntasID ,
