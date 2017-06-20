@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SixQuiz</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--<link rel="stylesheet" type="text/css" href="https://webitcloud.net/PW/1617/ACJ/Projecto/wQuizz/script2.css">-->
+    <!--<script src="https://webitcloud.net/PW/1617/ACJ/Projecto/wQuizz/login.js"></script>-->
+
+    <!--teste-->
+    <link rel="stylesheet" type="text/css" href="script2.css">
+
+    <!--meter o webitcloud-->
+    <script src="login.js"></script>
+
+    <link rel="icon" href="https://webitcloud.net/PW/1617/ACJ/wQuizz/imagens/logoP.png" type="image/x-icon">
+
+
+</head>
+
+<body>
+
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+
+            <li class="sidebar-brand">
+                <a href="#" id="menu-toggle2">Regressar</a>
+
+            </li>
+
+
+            <li>
+                 <a href="#" id="btnInicial">Página Inicial</a>
+                <hr>
+            </li>
+            <li>
+               <a href="#" id="btnRanking">Ranking</a>
+                <hr>
+            </li>
+            <!--<li>
+                <a href="#"></a>
+            </li>
+            <li>
+                <a href="#">Events</a>
+            </li>
+            <li>
+                <a href="#">About</a>
+            </li>
+            <li>
+                <a href="#">Services</a>
+            </li>-->
+            <li>
+                <a href="#" id="btnSair">Sair</a>
+                <hr>
+            </li>
+        </ul>
+    </div>
+    <nav class="navbar navbar-default" id="nav2">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <img src="https://webitcloud.net/PW/1617/ACJ/imagens/logoB.png" id="logo2">
+                </a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#menu-toggle" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" style="color:#FFFFFF; font-size: 22px"></span></a>
+                </li>
+            </ul>
+            <!--<img src="imagens/user-male-shape-in-a-circle-ios-7-interface-symbol_318-35357.jpg" alt="user" id="user">-->
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row" id="div_tipoJogo2">
+            <div class="col-sm-2 ">
+            </div>
+            <div class="col-sm-8 ">
+                <br>
+                <br>
+                <br>
+                <h3 id="tipoJogo">Selecione o Tipo de Jogo:</h3>
+                <br>
+                <br>
+                <br>
+            </div>
+            <div class="col-sm-2 ">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container-fluid">
+        <div class="row" id="div_tipoJogo">
+            <div class="col-sm-3 ">
+            </div>
+            <div class="col-sm-3">
+
+                <center> <button type="button" class="btn" id="single">Single</button></center>
+                <br>
+            </div>
+            <div class="col-sm-3 ">
+
+                <center> <button type="button" class="btn" id="multi">Multiplayer</button>
+                    <center>
+            </div>
+            <div class="col-sm-3 ">
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("toggled");
+    });
+    $("#menu-toggle2").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("toggled");
+    });
+
+    
+     
+
+    </script>
+</body>
+
+</html>

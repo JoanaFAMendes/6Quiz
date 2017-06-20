@@ -12,7 +12,7 @@ app.use(cookieSession({
     keys: ["abc"]
 }));
 
-var perguntas;
+//var perguntas;
 //respostas;
 
 var mysql = require('mysql');
@@ -88,7 +88,8 @@ app.post('/login', function (req, res) {
 //Vai buscar os temas à base de dados
 app.get('/temas', function (req, res) {
     console.log("aparece temas");
-    connection.query('SELECT nome_tema from Tema;', function (err, rows, fields) {
+    var sql = 'SELECT nome_tema from Tema;';
+    connection.query(sql, function (err, rows, fields) {
         console.log(err);
         if (!err) {
             res.send(rows);
@@ -106,7 +107,7 @@ app.get('/perguntas', function (req, res) {
     // connection.query('SELECT * from Perguntas where dificuldade=' + nivel + ' and id_tema like (select id_tema from Tema where nome_tema=' + tema + ');', function (err, rows, fields) {
     //     res.send(rows);
     // });
-    var sql = "SELECT p.pergunta, p.id_pergunta from Pergunta p, Tema t where p.id_tema=t.id_tema and nome_tema ='"+tema+"' and dificuldade="+nivel+" ORDER BY RAND() LIMIT "+nAleatorio+";";
+    var sql = "SELECT p.pergunta, p.id_pergunta, p.id_tipo_pergunta from Pergunta p, Tema t where p.id_tema=t.id_tema and nome_tema ='"+tema+"' and dificuldade="+nivel+" ORDER BY RAND() LIMIT "+nAleatorio+";";
       console.log(sql);
       connection.query(sql, function (err, rows, fields) {
       
@@ -116,12 +117,12 @@ app.get('/perguntas', function (req, res) {
 });
 
 app.get('/jogo', function(req, res){
-    var nivel = req.param('nivel');
     var tema = req.param('tema');
     var d = new Date();
     var n = d.getTime();
     jogo=tema+n;
-    connection.query('insert into Jogo (id_jogo, nome_jogo, nivel, pontuacao_jogo) values('+jogo+','+tema+','+nivel+',100);', function(err,rows,fields){
+    var sql = 'insert into Jogo (id_jogo, nome_jogo) values('+jogo+','+tema+');';
+    connection.query(sql, function(err,rows,fields){
         
     });
 });

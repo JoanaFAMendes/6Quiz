@@ -125,25 +125,19 @@ $(document).ready(function () {
                                         }).done(function (data) {
                                                 console.log(data[1]);
                                                 console.log("hh" + data);
-                                                //em vez de $(data, function (key, data) { colocar for()
-                                                $(data, function (key, data) {
+                                                for(var p=0; p<6; p++){//ir buscar cada pergunta ao array data
                                                         var pergunta = '<div class="row">';
                                                         console.log("hh2");
-                                                        perguntasID = data.id_pergunta;
-                                                        pergunta = "<div class='col-sm-3'><center><div><p>" + data.pergunta + "</p></div></center></div>";
+                                                        perguntasID = data[p].id_pergunta;
+                                                        pergunta = "<div class='col-sm-3'><center><div><p>" + data[p].pergunta + "</p></div></center></div>";
                                                         $("#div_tipoJogo2").append(pergunta + "</div>");
                                                         var respostas = '<div class="row">';
-                                                        //respostas
-                                                        /*
+                                                        var tipoPergunta = data[p].id_tipo_pergunta;
                                                         $.ajax({
                                                                 type: "GET",
                                                                 url: "http://localhost:3000/respostas?perguntaID=" + perguntasID ,
                                                                 contentType: "application/json"
                                                         }).done(function (data) {
-                                                                
-                                                                // if(){
-
-                                                                // }
                                                                 console.log("hh" + data);
                                                                 $.each(data, function (key, data) {
                                                                         console.log("hh2");
@@ -152,9 +146,9 @@ $(document).ready(function () {
 
                                                                 });
                                                                // $("#div_tipoJogo").append(respostas + "</div>");
-                                                        });*/
-                                                        
-                                                });
+                                                        });
+                                                }
+                                                //em vez de $(data, function (key, data) { colocar for()
                                         });
                                 });
 
