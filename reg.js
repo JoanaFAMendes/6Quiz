@@ -138,7 +138,13 @@ app.get('/respostas', function(req, res){
     });
 });
 
-
+//adiciona a pontuação de um utilizador num determinado jogo à BD
+app.get('/pontuacao', function(req,res){
+    var pontos = req.param('pontos');
+    connection.query('Insert into utilizador_jogo (id_utilizador, id_jogo, pontuacao_utilizador) values ('+userID+','+jogoID+''+pontos+');',function(err,rows,fields){
+        
+    });
+});
 
 app.listen(port);
 
