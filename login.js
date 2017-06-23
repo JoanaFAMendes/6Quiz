@@ -141,10 +141,9 @@ $(document).ready(function () {
                                         var perguntasID = 0;
                                         var idObj = $(this).attr('id');
                                         console.log($(this).attr('id'));
-                                        var validade = [][]; //validade da resposta
+                                        //var validade = [][]; //validade da resposta
                                         //buscar pontuação reposta
                                         var pontuacao = 0;//pontuação do jogador
-
                                         //perguntas
                                         //for para dificuldade perguntas
                                         for (var n = 1; n <= 6; n++) {
@@ -155,89 +154,98 @@ $(document).ready(function () {
                                                 }).done(function (data) {
                                                         console.log(data[1]);
                                                         console.log("hh" + data);
+
                                                         //ir buscar cada pergunta ao array data
                                                         for (var p = 0; p < 6; p++) {
-                                                                var pergunta = '<div class="row">';
-                                                                console.log("hh2");
-                                                                perguntasID = data[p].id_pergunta;
-                                                                pergunta = "<div class='col-sm-3'><center><div><p>" + data[p].pergunta + "</p></div></center></div>";
-                                                                $("#div_tipoJogo2").append(pergunta + "</div>");
-                                                                var respostas = '<div class="row">';
-                                                                var tipoPergunta = data[p].id_tipo_pergunta;
-                                                                var t = false;
-                                                                //respostas
-                                                                $.ajax({
-                                                                        type: "GET",
-                                                                        url: "http://localhost:3000/respostas?perguntaID=" + perguntasID,
-                                                                        contentType: "application/json"
-                                                                }).done(function (data) {
-                                                                        console.log("hh" + data);
-                                                                        $.each(data, function (key, data) {
-                                                                                console.log("hh2");
-                                                                                //Escolha múltipla
-                                                                                if (tipoPergunta == 1) {
-
-                                                                                }
-                                                                                //
-                                                                                if (tipoPergunta == 2) {
-
-                                                                                }
-                                                                                //
-                                                                                if (tipoPergunta == 3) {
-
-                                                                                }
-                                                                                //
-                                                                                if (tipoPergunta == 4) {
-
-                                                                                }
-                                                                                //
-                                                                                if (tipoPergunta == 5) {
-
-                                                                                }
-                                                                                //
-                                                                                if (tipoPergunta == 6) {
-
-                                                                                }
-                                                                                //perguntas[pID] = data.id_pergunta;
-                                                                                respostas += "<div class='col-sm-3'><center><div><p>" + data.resposta + "</p></div></center></div>";
-                                                                                r++;
-                                                                        });
-                                                                        $("#div_tipoJogo").append(respostas + "</div>");
-                                                                });
+                                                                console.log(1);
                                                                 var bar = "<div class='progress active progress-striped' id='progressouter'><div class='progress-bar' id='progress'></div></div>";
-                                                                $("#div_tipoJogo").append(bar);
-                                                                $('#div_tipoJogo').on(function () {
-                                                                        // do stuff
-                                                                        var timetogo = 30;
-                                                                        console.log(timetogo);
+                                                                $("#div_tipoJogo3").append(bar);
+                                                                var tempo = 1;
+                                                                while (tempo != 0) {
+                                                                        var pergunta = '<div class="row">';
+                                                                        console.log("hh2");
+                                                                        perguntasID = data[p].id_pergunta;
+                                                                        pergunta = "<div class='col-sm-3'><center><div><p>" + data[p].pergunta + "</p></div></center></div>";
+                                                                        $("#div_tipoJogo2").append(pergunta + "</div>");
+                                                                        var respostas = '<div class="row">';
+                                                                        var tipoPergunta = data[p].id_tipo_pergunta;
+                                                                        var t = false;
+                                                                        //respostas
+                                                                        $.ajax({
+                                                                                type: "GET",
+                                                                                url: "http://localhost:3000/respostas?perguntaID=" + perguntasID,
+                                                                                contentType: "application/json"
+                                                                        }).done(function (data) {
+                                                                                console.log("hh" + data);
+                                                                                $.each(data, function (key, data) {
+                                                                                        console.log("hh2");
+                                                                                        //Escolha múltipla
+                                                                                        if (tipoPergunta == 1) {
 
-                                                                        var myCounter = new Countdown({
-                                                                                seconds: timetogo, // number of seconds to count down
+                                                                                        }
+                                                                                        //
+                                                                                        if (tipoPergunta == 2) {
+
+                                                                                        }
+                                                                                        //
+                                                                                        if (tipoPergunta == 3) {
+
+                                                                                        }
+                                                                                        //
+                                                                                        if (tipoPergunta == 4) {
+
+                                                                                        }
+                                                                                        //
+                                                                                        if (tipoPergunta == 5) {
+
+                                                                                        }
+                                                                                        //
+                                                                                        if (tipoPergunta == 6) {
+
+                                                                                        }
+                                                                                        //perguntas[pID] = data.id_pergunta;
+                                                                                        respostas += "<div class='col-sm-3'><center><div><p>" + data.resposta + "</p></div></center></div>";
+                                                                                        //r++;
+                                                                                });
+                                                                                $("#div_tipoJogo").append(respostas + "</div>");
+                                                                        });
+
+                                                                        $('#div_tipoJogo3').on(function () {
+                                                                                // do stuff
+                                                                                var timetogo = 30;
+                                                                                console.log(timetogo);
+
+                                                                                var myCounter = new Countdown({
+                                                                                        seconds: timetogo, // number of seconds to count down
+                                                                                        onUpdateStatus: function (sec) {
+                                                                                                elapsed = timetogo - sec;
+                                                                                                $('.progress-bar').width(((elapsed / timetogo) * 100) + "%");
+                                                                                                //tempo = 1;
+                                                                                        }, // callback for each second
+                                                                                        onCounterEnd: function () {
+                                                                                                alert('counter ended!');
+                                                                                                tempo = 0;
+                                                                                        } // final action
+                                                                                });
+
+                                                                                myCounter.start();
+                                                                        });
+
+                                                                        var timetogoFirst = 30;
+                                                                        var myCounterFirst = new Countdown({
+                                                                                seconds: timetogoFirst, // number of seconds to count down
                                                                                 onUpdateStatus: function (sec) {
-                                                                                        elapsed = timetogo - sec;
-                                                                                        $('.progress-bar').width(((elapsed / timetogo) * 100) + "%");
+                                                                                        elapsed = timetogoFirst - sec;
+                                                                                        $('.progress-bar').width(((elapsed / timetogoFirst) * 100) + "%");
+                                                                                        //tempo = 1;
                                                                                 }, // callback for each second
                                                                                 onCounterEnd: function () {
                                                                                         alert('counter ended!');
+                                                                                        tempo = 0;
                                                                                 } // final action
                                                                         });
-
-                                                                        myCounter.start();
-                                                                });
-
-                                                                var timetogoFirst = 30;
-                                                                var myCounterFirst = new Countdown({
-                                                                        seconds: timetogoFirst, // number of seconds to count down
-                                                                        onUpdateStatus: function (sec) {
-                                                                                elapsed = timetogoFirst - sec;
-                                                                                $('.progress-bar').width(((elapsed / timetogoFirst) * 100) + "%");
-                                                                        }, // callback for each second
-                                                                        onCounterEnd: function () {
-                                                                                alert('counter ended!');
-                                                                        } // final action
-                                                                });
-                                                                myCounterFirst.start();
-
+                                                                        myCounterFirst.start();
+                                                                }//fim while
                                                         }//fim perguntas
                                                 });
                                         }//fim for dificuldade
