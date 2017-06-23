@@ -208,7 +208,7 @@ $(document).ready(function () {
                                                                 $("#div_tipoJogo").append(bar);
                                                                 $('#div_tipoJogo').on(function () {
                                                                         // do stuff
-                                                                        var timetogo = $('.current').attr("data-time");
+                                                                        var timetogo = 30;
                                                                         console.log(timetogo);
 
                                                                         var myCounter = new Countdown({
@@ -225,7 +225,7 @@ $(document).ready(function () {
                                                                         myCounter.start();
                                                                 });
 
-                                                                var timetogoFirst = $('.current').attr("data-time");
+                                                                var timetogoFirst = 30;
                                                                 var myCounterFirst = new Countdown({
                                                                         seconds: timetogoFirst, // number of seconds to count down
                                                                         onUpdateStatus: function (sec) {
