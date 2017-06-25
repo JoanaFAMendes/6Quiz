@@ -161,7 +161,7 @@ $(document).ready(function () {
                                                                 var bar = "<div class='progress active progress-striped' id='progressouter'><div class='progress-bar' id='progress'></div></div>";
                                                                 $("#div_tipoJogo3").append(bar);
                                                                 var tempo = 1;
-                                                                while (tempo != 0) {
+                                                                
                                                                         var pergunta = '<div class="row">';
                                                                         console.log("hh2");
                                                                         perguntasID = data[p].id_pergunta;
@@ -209,6 +209,7 @@ $(document).ready(function () {
                                                                                 });
                                                                                 $("#div_tipoJogo").append(respostas + "</div>");
                                                                         });
+									do {
 
                                                                         $('#div_tipoJogo3').on(function () {
                                                                                 // do stuff
@@ -246,6 +247,7 @@ $(document).ready(function () {
                                                                         });
                                                                         myCounterFirst.start();
                                                                 }//fim while
+								while (tempo != 0);
                                                         }//fim perguntas
                                                 });
                                         }//fim for dificuldade
@@ -302,3 +304,4 @@ $(document).ready(function () {
 
 
 
+                                      
